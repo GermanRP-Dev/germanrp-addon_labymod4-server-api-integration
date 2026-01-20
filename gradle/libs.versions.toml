@@ -1,0 +1,11 @@
+[versions]
+jetbrains-annotations = "22.0.0"
+labymod-serverapi-core = "1.0.6"
+google-autoService = "1.1.1"
+lombok = "1.18.42"
+
+[libraries]
+jetbrains-annotations = {module= "org.jetbrains:annotations", version.ref = "jetbrains-annotations"}
+labymod-serverapi-core = {module= "net.labymod.serverapi:core", version.ref = "labymod-serverapi-core"}
+google-autoService = {module= "com.google.auto.service:auto-service", version.ref = "google-autoService"}
+lombok = {module= "org.projectlombok:lombok", version.ref = "lombok"}

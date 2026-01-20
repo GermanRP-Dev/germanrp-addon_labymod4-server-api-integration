@@ -1,0 +1,1 @@
+rootProject.name = "germanrp-addon_labymod4-server-api-integration"
