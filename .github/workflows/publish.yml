@@ -33,4 +33,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_ACTOR: ${{ github.actor }}
-          VERSION: ${{ github.ref_type == 'tag' && github.ref_name || '0.0.0-SNAPSHOT' }}
+          VERSION: ${{ github.ref_type == 'tag' && github.ref_name }}
