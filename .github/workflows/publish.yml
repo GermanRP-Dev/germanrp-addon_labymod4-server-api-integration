@@ -28,9 +28,12 @@ jobs:
       - name: Make gradlew executable
         run: chmod +x gradlew
 
+      - name: Set Version
+        if: github.ref_type == 'tag'
+        run: echo "VERSION=${{ github.ref_name }}" >> $GITHUB_ENV
+
       - name: Publish to GitHub Packages
         run: ./gradlew publish
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_ACTOR: ${{ github.actor }}
-          VERSION: ${{ github.ref_type == 'tag' && github.ref_name }}
