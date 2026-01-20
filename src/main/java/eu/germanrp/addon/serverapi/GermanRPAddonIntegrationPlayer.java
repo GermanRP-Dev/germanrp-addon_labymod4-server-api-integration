@@ -12,12 +12,12 @@ import org.jetbrains.annotations.NotNull;
 import java.util.Set;
 import java.util.UUID;
 
-public class GermanRPAddonPlayer implements LabyModIntegrationPlayer {
+public class GermanRPAddonIntegrationPlayer implements LabyModIntegrationPlayer {
 
     private final AddonProtocol addonProtocol;
     private final UUID uniqueId;
 
-    protected GermanRPAddonPlayer(AddonProtocol addonProtocol, UUID uniqueId) {
+    protected GermanRPAddonIntegrationPlayer(AddonProtocol addonProtocol, UUID uniqueId) {
         this.addonProtocol = addonProtocol;
         this.uniqueId = uniqueId;
     }
