@@ -1,6 +1,7 @@
 package eu.germanrp.addon.serverapi.packet;
 
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 import net.labymod.serverapi.api.packet.Packet;
@@ -15,6 +16,7 @@ import org.jetbrains.annotations.NotNull;
 @AllArgsConstructor
 public class RemoveATMPacket implements Packet {
 
+    @Getter
     @Accessors(fluent = true)
     private String id;
 
