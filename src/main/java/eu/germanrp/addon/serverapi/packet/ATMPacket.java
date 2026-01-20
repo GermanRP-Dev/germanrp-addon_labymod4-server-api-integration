@@ -14,7 +14,7 @@ import org.jetbrains.annotations.NotNull;
 public abstract class ATMPacket implements Packet {
 
     @Accessors(fluent = true)
-    protected ATM atm;
+    public ATM atm;
 
     @Override
     public void read(@NotNull PayloadReader reader) {

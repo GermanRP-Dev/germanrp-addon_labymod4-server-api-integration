@@ -16,7 +16,7 @@ import java.util.Set;
 public abstract class ATMListPacket implements Packet {
 
     @Accessors(fluent = true)
-    protected Set<ATM> atms;
+    public Set<ATM> atms;
 
     @Override
     public void read(@NotNull PayloadReader reader) {
