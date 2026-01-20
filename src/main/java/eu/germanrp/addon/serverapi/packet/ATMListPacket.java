@@ -2,6 +2,7 @@ package eu.germanrp.addon.serverapi.packet;
 
 import eu.germanrp.addon.serverapi.model.ATM;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 import net.labymod.serverapi.api.packet.Packet;
@@ -11,12 +12,13 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.Set;
 
+@Getter
 @NoArgsConstructor
 @AllArgsConstructor
 public abstract class ATMListPacket implements Packet {
 
     @Accessors(fluent = true)
-    public Set<ATM> atms;
+    protected Set<ATM> atms;
 
     @Override
     public void read(@NotNull PayloadReader reader) {
