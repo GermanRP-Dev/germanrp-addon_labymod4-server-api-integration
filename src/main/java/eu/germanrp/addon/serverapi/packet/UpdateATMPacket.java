@@ -2,19 +2,18 @@ package eu.germanrp.addon.serverapi.packet;
 
 import eu.germanrp.addon.serverapi.model.ATM;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 import net.labymod.serverapi.api.payload.io.PayloadReader;
 import net.labymod.serverapi.api.payload.io.PayloadWriter;
 import org.jetbrains.annotations.NotNull;
 
-/**
- * 
- */
 @NoArgsConstructor
 @AllArgsConstructor
 public class UpdateATMPacket extends ATMPacket {
 
+    @Getter
     @Accessors(fluent = true)
     private String id;
 
