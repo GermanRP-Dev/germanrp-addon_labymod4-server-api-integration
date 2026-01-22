@@ -11,6 +11,7 @@ import net.labymod.serverapi.api.payload.io.PayloadWriter;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Set;
+import java.util.StringJoiner;
 
 @Getter
 @NoArgsConstructor
@@ -42,6 +43,13 @@ public abstract class ATMListPacket implements Packet {
             writer.writeDouble(atm.z());
             writer.writeLong(atm.cooldownTimestamp());
         });
+    }
+
+    @Override
+    public String toString() {
+        return new StringJoiner(", ", ATMListPacket.class.getSimpleName() + "[", "]")
+                .add("atms=" + atms)
+                .toString();
     }
 
 }

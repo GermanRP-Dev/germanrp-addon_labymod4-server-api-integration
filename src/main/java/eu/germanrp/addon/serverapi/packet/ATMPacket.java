@@ -10,6 +10,8 @@ import net.labymod.serverapi.api.payload.io.PayloadReader;
 import net.labymod.serverapi.api.payload.io.PayloadWriter;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.StringJoiner;
+
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
@@ -38,6 +40,13 @@ public abstract class ATMPacket implements Packet {
         writer.writeDouble(this.atm.y());
         writer.writeDouble(this.atm.z());
         writer.writeLong(this.atm.cooldownTimestamp());
+    }
+
+    @Override
+    public String toString() {
+        return new StringJoiner(", ", ATMPacket.class.getSimpleName() + "[", "]")
+                .add("atm=" + atm)
+                .toString();
     }
 
 }
