@@ -1,12 +1,11 @@
 package eu.germanrp.addon.serverapi.packet;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import net.labymod.serverapi.api.packet.Packet;
 import net.labymod.serverapi.api.payload.io.PayloadReader;
 import net.labymod.serverapi.api.payload.io.PayloadWriter;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.time.Instant;
 
@@ -43,9 +42,22 @@ public final class EffectPacket implements Packet {
         this.end = Instant.ofEpochMilli(reader.readLong());
     }
 
+    @RequiredArgsConstructor
     public enum EffectType {
-        FAST_BREAK,
-        BONUS_HOUSE_ACTION
+        FAST_BREAK("Flinke Hände"),
+        BONUS_HOUSE_ACTION("Meisterklingler");
+
+        private final String displayName;
+
+        public static @Nullable EffectType fromDisplayName(final String displayName) {
+            for (val value : values()) {
+                if (value.displayName.equals(displayName)) {
+                    return value;
+                }
+            }
+            return null;
+        }
+
     }
 
 }
