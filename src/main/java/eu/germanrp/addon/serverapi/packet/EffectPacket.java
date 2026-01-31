@@ -42,6 +42,7 @@ public final class EffectPacket implements Packet {
         this.end = Instant.ofEpochMilli(reader.readLong());
     }
 
+    @Getter
     @RequiredArgsConstructor
     public enum EffectType {
         FAST_BREAK("Flinke Hände"),
