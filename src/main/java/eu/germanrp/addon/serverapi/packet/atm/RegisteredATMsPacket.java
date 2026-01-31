@@ -1,4 +1,4 @@
-package eu.germanrp.addon.serverapi.packet;
+package eu.germanrp.addon.serverapi.packet.atm;
 
 import eu.germanrp.addon.serverapi.model.ATM;
 

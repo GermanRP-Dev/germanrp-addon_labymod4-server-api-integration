@@ -1,10 +1,10 @@
 package eu.germanrp.addon.serverapi;
 
 import eu.germanrp.addon.serverapi.model.ATM;
-import eu.germanrp.addon.serverapi.packet.AddATMPacket;
-import eu.germanrp.addon.serverapi.packet.RegisteredATMsPacket;
-import eu.germanrp.addon.serverapi.packet.RemoveATMPacket;
-import eu.germanrp.addon.serverapi.packet.UpdateATMPacket;
+import eu.germanrp.addon.serverapi.packet.atm.AddATMPacket;
+import eu.germanrp.addon.serverapi.packet.atm.RegisteredATMsPacket;
+import eu.germanrp.addon.serverapi.packet.atm.RemoveATMPacket;
+import eu.germanrp.addon.serverapi.packet.atm.UpdateATMPacket;
 import net.labymod.serverapi.core.AddonProtocol;
 import net.labymod.serverapi.core.integration.LabyModIntegrationPlayer;
 import org.jetbrains.annotations.NotNull;

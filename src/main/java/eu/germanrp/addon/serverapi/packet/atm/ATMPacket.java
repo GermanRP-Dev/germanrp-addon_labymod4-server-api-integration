@@ -1,4 +1,4 @@
-package eu.germanrp.addon.serverapi.packet;
+package eu.germanrp.addon.serverapi.packet.atm;
 
 import eu.germanrp.addon.serverapi.model.ATM;
 import lombok.AllArgsConstructor;
@@ -10,45 +10,42 @@ import net.labymod.serverapi.api.payload.io.PayloadReader;
 import net.labymod.serverapi.api.payload.io.PayloadWriter;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.Set;
 import java.util.StringJoiner;
 
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public abstract class ATMListPacket implements Packet {
+public abstract class ATMPacket implements Packet {
 
     @Accessors(fluent = true)
-    protected Set<ATM> atms;
+    protected ATM atm;
 
     @Override
     public void read(@NotNull PayloadReader reader) {
-        this.atms = reader.readSet(() -> new ATM(
+        this.atm = new ATM(
                 reader.readString(),
                 reader.readString(),
                 reader.readDouble(),
                 reader.readDouble(),
                 reader.readDouble(),
                 reader.readLong()
-        ));
+        );
     }
 
     @Override
     public void write(@NotNull PayloadWriter writer) {
-        writer.writeCollection(this.atms, atm -> {
-            writer.writeString(atm.displayName());
-            writer.writeString(atm.id());
-            writer.writeDouble(atm.x());
-            writer.writeDouble(atm.y());
-            writer.writeDouble(atm.z());
-            writer.writeLong(atm.cooldownTimestamp());
-        });
+        writer.writeString(this.atm.displayName());
+        writer.writeString(this.atm.id());
+        writer.writeDouble(this.atm.x());
+        writer.writeDouble(this.atm.y());
+        writer.writeDouble(this.atm.z());
+        writer.writeLong(this.atm.cooldownTimestamp());
     }
 
     @Override
     public String toString() {
-        return new StringJoiner(", ", ATMListPacket.class.getSimpleName() + "[", "]")
-                .add("atms=" + atms)
+        return new StringJoiner(", ", ATMPacket.class.getSimpleName() + "[", "]")
+                .add("atm=" + atm)
                 .toString();
     }
 
