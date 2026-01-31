@@ -5,10 +5,12 @@ import eu.germanrp.addon.serverapi.packet.atm.AddATMPacket;
 import eu.germanrp.addon.serverapi.packet.atm.RegisteredATMsPacket;
 import eu.germanrp.addon.serverapi.packet.atm.RemoveATMPacket;
 import eu.germanrp.addon.serverapi.packet.atm.UpdateATMPacket;
+import eu.germanrp.addon.serverapi.packet.EffectPacket;
 import net.labymod.serverapi.core.AddonProtocol;
 import net.labymod.serverapi.core.integration.LabyModIntegrationPlayer;
 import org.jetbrains.annotations.NotNull;
 
+import java.time.Instant;
 import java.util.Set;
 import java.util.UUID;
 
@@ -85,6 +87,22 @@ public class GermanRPAddonIntegrationPlayer implements LabyModIntegrationPlayer 
             final @NotNull String id
     ) {
         this.addonProtocol.sendPacket(uniqueId, new RemoveATMPacket(id));
+    }
+
+    /**
+     * Sends information about an effect.
+     *
+     * @param type        the type of the effect
+     * @param displayName the display name of the effect
+     * @param end         when the effect ends
+     */
+    @SuppressWarnings("unused")
+    public void sendEffect(
+            final EffectPacket.EffectType type,
+            final String displayName,
+            final Instant end
+    ) {
+        this.addonProtocol.sendPacket(uniqueId, new EffectPacket(type, displayName, end));
     }
 
 }

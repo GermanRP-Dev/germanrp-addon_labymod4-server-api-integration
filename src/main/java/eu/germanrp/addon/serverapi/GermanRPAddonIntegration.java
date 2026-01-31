@@ -5,6 +5,7 @@ import eu.germanrp.addon.serverapi.packet.atm.AddATMPacket;
 import eu.germanrp.addon.serverapi.packet.atm.RegisteredATMsPacket;
 import eu.germanrp.addon.serverapi.packet.atm.RemoveATMPacket;
 import eu.germanrp.addon.serverapi.packet.atm.UpdateATMPacket;
+import eu.germanrp.addon.serverapi.packet.EffectPacket;
 import net.labymod.serverapi.api.packet.Direction;
 import net.labymod.serverapi.core.AbstractLabyModPlayer;
 import net.labymod.serverapi.core.AbstractLabyModProtocolService;
@@ -25,10 +26,12 @@ public class GermanRPAddonIntegration implements LabyModProtocolIntegration {
         }
 
         this.addonProtocol = new AddonProtocol(protocolService, "germanrpaddon");
+
         this.addonProtocol.registerPacket(0, RegisteredATMsPacket.class, Direction.CLIENTBOUND);
         this.addonProtocol.registerPacket(1, UpdateATMPacket.class, Direction.CLIENTBOUND);
         this.addonProtocol.registerPacket(2, AddATMPacket.class, Direction.CLIENTBOUND);
         this.addonProtocol.registerPacket(3, RemoveATMPacket.class, Direction.CLIENTBOUND);
+        this.addonProtocol.registerPacket(4, EffectPacket.class, Direction.CLIENTBOUND);
 
         protocolService.registry().registerProtocol(this.addonProtocol);
     }
