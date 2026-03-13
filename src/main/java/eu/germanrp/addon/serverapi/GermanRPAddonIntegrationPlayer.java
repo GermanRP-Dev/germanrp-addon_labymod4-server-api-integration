@@ -1,7 +1,9 @@
 package eu.germanrp.addon.serverapi;
 
 import eu.germanrp.addon.serverapi.model.ATM;
+import eu.germanrp.addon.serverapi.model.License;
 import eu.germanrp.addon.serverapi.packet.EffectPacket;
+import eu.germanrp.addon.serverapi.packet.LicensePacket;
 import eu.germanrp.addon.serverapi.packet.atm.AddATMPacket;
 import eu.germanrp.addon.serverapi.packet.atm.RegisteredATMsPacket;
 import eu.germanrp.addon.serverapi.packet.atm.RemoveATMPacket;
@@ -103,6 +105,18 @@ public class GermanRPAddonIntegrationPlayer implements LabyModIntegrationPlayer 
             final Instant end
     ) {
         this.addonProtocol.sendPacket(uniqueId, new EffectPacket(type, displayName, end));
+    }
+
+    /**
+     * Sends the license information to the client.
+     *
+     * @param licenses the licenses and their status
+     */
+    @SuppressWarnings("unused")
+    public void sendLicense(
+            final @NotNull Set<License> licenses
+    ) {
+        this.addonProtocol.sendPacket(uniqueId, new LicensePacket(licenses));
     }
 
 }
