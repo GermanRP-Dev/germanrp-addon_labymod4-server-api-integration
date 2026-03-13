@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
  * This packet is sent to the player when a single ATM is added.
  */
 @NoArgsConstructor
-public class AddATMPacket extends ATMPacket {
+public final class AddATMPacket extends ATMPacket {
 
     public AddATMPacket(ATM atm) {
         super(atm);

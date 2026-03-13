@@ -14,7 +14,7 @@ import org.jetbrains.annotations.NotNull;
  */
 @NoArgsConstructor
 @AllArgsConstructor
-public class RemoveATMPacket implements Packet {
+public final class RemoveATMPacket implements Packet {
 
     @Getter
     @Accessors(fluent = true)

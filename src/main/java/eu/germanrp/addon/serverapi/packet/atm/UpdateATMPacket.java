@@ -11,7 +11,7 @@ import org.jetbrains.annotations.NotNull;
 
 @NoArgsConstructor
 @AllArgsConstructor
-public class UpdateATMPacket extends ATMPacket {
+public final class UpdateATMPacket extends ATMPacket {
 
     @Getter
     @Accessors(fluent = true)
