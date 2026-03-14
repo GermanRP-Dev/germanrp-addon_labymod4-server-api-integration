@@ -3,7 +3,9 @@ package eu.germanrp.addon.serverapi.packet;
 import eu.germanrp.addon.serverapi.model.License;
 import eu.germanrp.addon.serverapi.model.LicenseStatus;
 import eu.germanrp.addon.serverapi.model.LicenseType;
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import lombok.experimental.Accessors;
 import net.labymod.serverapi.api.packet.Packet;
 import net.labymod.serverapi.api.payload.io.PayloadReader;
 import net.labymod.serverapi.api.payload.io.PayloadWriter;
@@ -14,6 +16,7 @@ import java.util.Set;
 /**
  * This packet contains information about the player's licenses.
  */
+@Getter
 @RequiredArgsConstructor
 @SuppressWarnings("unused")
 public final class LicensePacket implements Packet {
@@ -23,7 +26,8 @@ public final class LicensePacket implements Packet {
      *
      * @see LicenseType
      */
-    private final Set<License> licenses;
+    @Accessors(fluent = true)
+    private Set<License> licenses;
 
     @Override
     public void read(@NotNull PayloadReader reader) {
